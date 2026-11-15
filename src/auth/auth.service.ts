@@ -19,5 +19,9 @@ export class AuthService {
       const { password, ...user } = findUser;
       return this.jwtService.sign(user);
     }
+
+    return null;
   }
+
+  getUser() {}
 }
