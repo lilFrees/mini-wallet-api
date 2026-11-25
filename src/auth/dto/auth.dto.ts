@@ -1,9 +1,29 @@
-import { IsString } from 'class-validator';
+import { IsEmail, IsString, MinLength } from 'class-validator';
 
 export class AuthPayloadDto {
   @IsString()
   username!: string;
 
   @IsString()
+  password!: string;
+}
+
+export class LoginDto {
+  @IsEmail()
+  email!: string;
+
+  @IsString()
+  password!: string;
+}
+
+export class SignupDto {
+  @IsEmail()
+  email!: string;
+
+  @IsString()
+  name!: string;
+
+  @IsString()
+  @MinLength(8)
   password!: string;
 }

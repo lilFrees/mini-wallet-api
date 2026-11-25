@@ -18,7 +18,6 @@ export class User {
   @Column()
   name!: string;
 
-  // Stores a bcrypt/argon2 hash, never the plain password.
   @Column()
   passwordHash!: string;
 
