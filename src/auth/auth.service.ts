@@ -42,7 +42,6 @@ export class AuthService {
 
     const hash = (await scrypt(password, salt, 32)) as Buffer;
 
-    console.log(hash.toString('hex'), storedHash);
     if (storedHash !== hash.toString('hex')) {
       return null;
     }

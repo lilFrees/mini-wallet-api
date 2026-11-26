@@ -8,7 +8,7 @@ export class WalletsService {
   constructor(@InjectRepository(Wallet) private repo: Repository<Wallet>) {}
 
   async findByUserId(userId: string) {
-    const wallet = await this.repo.findOne({ where: { id: userId } });
+    const wallet = await this.repo.findOne({ where: { userId } });
 
     if (!wallet) throw new BadRequestException('Wallet not found');
 
