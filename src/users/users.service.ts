@@ -12,6 +12,8 @@ export class UsersService {
   }
 
   create(data: { email: string; name: string; passwordHash: string }) {
-    return this.repo.save(this.repo.create(data));
+    return this.repo.save(
+      this.repo.create({ ...data, wallet: { balance: 0, currency: 'UZS' } }),
+    );
   }
 }
