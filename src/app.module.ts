@@ -8,6 +8,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { dataSourceOptions } from './database/data-source';
 import { UsersModule } from './users/users.module';
 import { WalletsModule } from './wallets/wallets.module';
+import { TransactionsModule } from './transactions/transactions.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { WalletsModule } from './wallets/wallets.module';
     AuthModule,
     UsersModule,
     WalletsModule,
+    TransactionsModule,
   ],
   controllers: [AppController],
   providers: [
