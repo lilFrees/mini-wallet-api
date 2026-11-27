@@ -1,4 +1,5 @@
 import {
+  Check,
   Column,
   CreateDateColumn,
   Entity,
@@ -11,6 +12,7 @@ import { User } from '../../users/entities/user.entity';
 import { bigintToNumber } from '../../database/bigint.transformer';
 
 @Entity({ name: 'wallets' })
+@Check('CHK_wallets_balance_non_negative', '"balance" >= 0')
 export class Wallet {
   @PrimaryGeneratedColumn('uuid')
   id!: string;
