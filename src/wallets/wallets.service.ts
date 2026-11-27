@@ -51,9 +51,11 @@ export class WalletsService {
 
   transfer(userId: string, toEmail: string, amount: number) {
     return this.dataSource.transaction(async (manager) => {
+      const email = toEmail.toLowerCase().trim();
+
       const fromWallet = await manager.findOne(Wallet, { where: { userId } });
       const toWallet = await manager.findOne(Wallet, {
-        where: { user: { email: toEmail } },
+        where: { user: { email } },
       });
 
       if (!fromWallet) {
